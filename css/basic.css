@@ -3,15 +3,19 @@
 	padding: 0;
 	color: #e7e7e7;
 	background-color: #202022;
+	font-size: 14px;
 }
 
 .head-content {
 	display: flex;
 	align-items: center;
-	margin: auto;
 	padding: 5px 20px;
 	font-size: 24px;
 	border-bottom: 1px solid #e7e7e7;
+}
+.head-main-content {
+	max-width: 1100px;
+	margin: auto;
 }
 
 #blog-logo {
@@ -19,6 +23,11 @@
 	height: 40px;
 	border-radius: 20px;
 }
+
+
+
+
+
 
 .body-content {
 	max-width: 1130px;
