@@ -56,13 +56,19 @@ body {
 }
 
 dynamic-btn {
-	padding: 0.8rem 1.2rem;
+	position: relative;
 	margin: 1rem;
 
-	font-size: 1rem;	
-	border: 1px solid #00dffc;
+	font-size: 1rem;
 	
+	mix-blend-mode: difference;
+
 	cursor: url("../imgs/cursor-r.png"), default;
+}
+
+.btn-text {
+	padding: 0.8rem 1.2rem;
+	border: 1px solid #00dffc;
 }
 
 
