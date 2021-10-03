@@ -1,0 +1,63 @@
+.article-block {
+    position: relative;
+}
+
+.article-deco {
+    position: absolute;
+    z-index: -1;
+    
+    overflow: hidden;
+}
+
+.article-block:hover .article-deco {
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+}
+
+article-deco-item {
+
+    position: absolute;
+    top: -999px;
+    bottom: -999px;
+    left: -999px;
+    right: -999px;
+    margin: auto;
+    height: 0px;
+    width: 120%;
+    padding-bottom: 120%;
+
+    display: block;
+    background-color: aqua;
+    clip-path: polygon(97% 32%,42% 72%,0% 29%,26% 72%);
+    
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    mix-blend-mode: difference;
+}
+
+article-deco-item.alpha {
+    animation-name: article_deco_rotate;
+    animation-duration: 5s;
+}
+
+article-deco-item.beta {
+    animation-name: article_deco_rotate;
+    animation-duration: 11s;
+}
+
+article-deco-item.gamma {
+    animation-name: article_deco_rotate_back;
+    animation-duration: 9s;
+}
+
+@keyframes article_deco_rotate {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+
+@keyframes article_deco_rotate_back {
+	from {transform: rotate(360deg);}
+	to {transform: rotate(0deg);}
+}
