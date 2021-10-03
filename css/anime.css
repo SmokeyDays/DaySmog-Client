@@ -1,3 +1,5 @@
+/* 边框动画 */
+
 .article-block {
     position: relative;
 }
@@ -60,4 +62,58 @@ article-deco-item.gamma {
 @keyframes article_deco_rotate_back {
 	from {transform: rotate(360deg);}
 	to {transform: rotate(0deg);}
+}
+
+/* 故障文字动画 */
+
+.article-block:hover .article-title{
+    position: relative;
+}
+
+.article-block:hover .article-title:before {
+    content: attr(data-text);
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+    position: absolute;
+    left: 2px;
+    width: 100%;
+    height: 100%;
+    
+    animation: noise-anim 1s infinite linear alternate-reverse;
+}
+
+.article-block:hover .article-title::after {
+    content: attr(data-text);
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+
+@keyframes noise-anim {
+    0% {clip: rect(0.932rem, 9999px, 1.127rem, 0);}
+    5% {clip: rect(0.474rem, 9999px, 0.843rem, 0);}
+    10% {clip: rect(1.005rem, 9999px, 1.671rem, 0);}
+    15% {clip: rect(1.406rem, 9999px, 1.415rem, 0);}
+    20% {clip: rect(1.139rem, 9999px, 1.240rem, 0);}
+    25% {clip: rect(0.760rem, 9999px, 1.329rem, 0);}
+    30% {clip: rect(0.843rem, 9999px, 0.981rem, 0);}
+    35% {clip: rect(1.224rem, 9999px, 1.312rem, 0);}
+    40% {clip: rect(0.119rem, 9999px, 0.350rem, 0);}
+    45% {clip: rect(0.056rem, 9999px, 0.137rem, 0);}
+    50% {clip: rect(1.385rem, 9999px, 1.600rem, 0);}
+    55% {clip: rect(1.012rem, 9999px, 1.330rem, 0);}
+    60% {clip: rect(1.044rem, 9999px, 1.597rem, 0);}
+    65% {clip: rect(0.566rem, 9999px, 1.217rem, 0);}
+    70% {clip: rect(1.595rem, 9999px, 1.604rem, 0);}
+    75% {clip: rect(0.333rem, 9999px, 0.395rem, 0);}
+    80% {clip: rect(0.592rem, 9999px, 1.345rem, 0);}
+    85% {clip: rect(0.197rem, 9999px, 1.405rem, 0);}
+    90% {clip: rect(0.853rem, 9999px, 1.276rem, 0);}
+    95% {clip: rect(0.284rem, 9999px, 1.009rem, 0);}
+    100% {clip: rect(1.282rem, 9999px, 1.376rem, 0);}
 }
