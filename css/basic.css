@@ -67,6 +67,7 @@ dynamic-btn {
 }
 
 .btn-text {
+	mix-blend-mode: difference;
 	padding: 0.8rem 1.2rem;
 	border: 1px solid #00dffc;
 }
@@ -193,4 +194,14 @@ dynamic-btn {
 
 .github a:hover {
 	text-decoration: underline;
+}
+
+
+
+/* 移动端适配 */
+
+@media only screen and (max-width: 814px){
+	.display-when-big {
+		display: none;
+	}
 }

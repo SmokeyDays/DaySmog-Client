@@ -2,6 +2,8 @@
 <html lang="zh">
 <head>
 	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <!-- https://www.runoob.com/w3cnote/viewport-deep-understanding.html -->
 	<link rel="stylesheet" href="css/basic.css">
     <link rel="stylesheet" href="css/anime.css">
 	<title>DaySmog</title>
@@ -17,38 +19,49 @@
             </div>
         </header>
         <main class = "body-content">
-            <div class = "left-column">
+            <div class = "left-column display-when-big">
                 <dynamic-btn id="btn-1">
                     <div class = "btn-text">简历</div>
+                    <btn-deco-item class = "alpha"></btn-deco-item>
+                    <btn-deco-item class = "beta"></btn-deco-item>
+                    <btn-deco-item class = "gamma"></btn-deco-item>
                 </dynamic-btn>
                 <dynamic-btn id="btn-2">
                     <div class = "btn-text">文章</div>
+                    <btn-deco-item class = "alpha"></btn-deco-item>
+                    <btn-deco-item class = "beta"></btn-deco-item>
+                    <btn-deco-item class = "gamma"></btn-deco-item>
                 </dynamic-btn>
                 <dynamic-btn id="btn-3">
                     <div class = "btn-text">关于</div>
+                    <btn-deco-item class = "alpha"></btn-deco-item>
+                    <btn-deco-item class = "beta"></btn-deco-item>
+                    <btn-deco-item class = "gamma"></btn-deco-item>
                 </dynamic-btn>
             </div>
             <div class = "mid-column">
                 <div class = "deco"></div>
                 <div class = "mid-title">文章列表</div>
-                <div class = "article-block">
-                    <div class = "article-card">
-                        <title class = "article-title" data-text = "这个标题出于测试的缘故特意被写得有点长请不要介意">这个标题出于测试的缘故特意被写得有点长请不要介意</title>
-                        <div class = "article-digest">这段话主要出于测试用途，那我就念两句诗吧：力微任重久神疲，再竭衰庸定不支。苟利国家生死以，岂因祸福避趋之。</div>
-                        <div class = "article-taglist">
-                            <span class = "article-tag">测试</span>
-                            <span class = "article-tag">诗歌</span>
+                <div class = "article-list">
+                    <div class = "article-block">
+                        <div class = "article-card">
+                            <title class = "article-title" data-text = "这个标题出于测试的缘故特意被写得有点长请不要介意">这个标题出于测试的缘故特意被写得有点长请不要介意</title>
+                            <div class = "article-digest">这段话主要出于测试用途，那我就念两句诗吧：力微任重久神疲，再竭衰庸定不支。苟利国家生死以，岂因祸福避趋之。</div>
+                            <div class = "article-taglist">
+                                <span class = "article-tag">测试</span>
+                                <span class = "article-tag">诗歌</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class = "article-deco">
-                        <article-deco-item class = "alpha"></article-deco-item>
-                        <article-deco-item class = "beta"></article-deco-item>
-                        <article-deco-item class = "gamma"></article-deco-item>
+                        <div class = "article-deco">
+                            <article-deco-item class = "alpha"></article-deco-item>
+                            <article-deco-item class = "beta"></article-deco-item>
+                            <article-deco-item class = "gamma"></article-deco-item>
+                        </div>
                     </div>
                 </div>
                 
             </div>
-            <div class = "right-column">
+            <div class = "right-column display-when-big">
                 <span class = "tag">测试 10</span><span class = "tag">诗歌 10</span><span class = "tag">文章 10</span>
                 <span class = "tag">最大32位整型 2147483647</span>
             </div>
@@ -63,4 +76,6 @@
             </div>
         </footer>
     </div>
+    <script src="./render/docRender.js"></script>
+    <script src="./web/docRequester.js"></script>
 </body>

@@ -159,9 +159,68 @@ dynamic-btn::after {
     right: -2px;
 }
 
-dynamic-btn:hover .btn-text{
+dynamic-btn:hover .btn-text {
     
     background-color: #00dffc;
     color: #202022;
 }
 
+btn-deco-item {
+    height: 0px;
+    width: 0px;
+
+    position: absolute;
+    mix-blend-mode: difference;
+
+    border-radius: 999rem;
+    
+
+    transition: all .3s;
+}
+
+dynamic-btn:hover btn-deco-item {
+    border: 1px solid #00dffc;
+    
+}
+
+btn-deco-item.alpha {
+    top: 0px;
+    left: 0px;
+}
+
+btn-deco-item.beta {
+    bottom: 0px;
+    left: 2.4rem;
+}
+
+btn-deco-item.gamma {
+    right: 0px;
+    top: 1.7rem;
+}
+
+
+dynamic-btn:hover btn-deco-item.alpha {
+    height: 1.2rem;
+    width: 1.2rem;
+
+    top: -0.7rem;
+    left: -0.7rem;
+}
+
+dynamic-btn:hover btn-deco-item.beta {
+    height: 0.8rem;
+    width: 0.8rem;
+
+    bottom: -0.5rem;
+    left: 2rem;
+
+    background-color: #00dffc;
+}
+
+dynamic-btn:hover btn-deco-item.gamma {
+    height: 0.8rem;
+    width: 0.8rem;
+
+    right: -0.5rem;
+    top: 1.4rem;
+}
