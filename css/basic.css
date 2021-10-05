@@ -59,6 +59,7 @@ body {
 	background-color: transparent;
 	flex: 1 1;
 	width: 100%;
+	box-sizing: border-box;
 
 	caret-color:#00dffc;
 }
