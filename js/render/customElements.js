@@ -1,6 +1,6 @@
 class ArticleDeco extends HTMLElement {
     connectedCallback() {
-      for (const variant of ['alpha', 'beta', 'gamma']) {
+      for (const variant of ["alpha", "beta", "gamma"]) {
         const child = document.createElement("article-deco-item");
         child.classList.add(variant);
         this.appendChild(child);
@@ -11,27 +11,27 @@ class ArticleDeco extends HTMLElement {
 class ArticleDecoItem extends HTMLElement {}
 
 class ArticleBlock extends HTMLElement {
-  static template = document.querySelector('#article-block-template');
+  static template = document.querySelector("#article-block-template");
 
   render(article) {
     const $el = document.importNode(ArticleBlock.template.content, true);
 
-    const $title = $el.querySelector('.article-title');
-    $title.setAttribute('data-text', article.title);
-    $title.textContent = article.title;
+    const $title = $el.querySelector(".article-title");
+    $title.setAttribute("data-text", article.title);
+    $title.innerHTML = article.title;
 
-    const $digest = $el.querySelector('.article-digest');
+    const $digest = $el.querySelector(".article-digest");
     $digest.innerHTML = article.description;
 
-    const $tagList = $el.querySelector('.article-taglist');
+    const $tagList = $el.querySelector(".article-taglist");
     for (let tag of article.tags.split(/[ ]+/)) {
-      const $tag = document.createElement('span');
-      $tag.className = 'article-tag';
+      const $tag = document.createElement("span");
+      $tag.className = "article-tag";
       $tag.textContent = tag;
       $tagList.appendChild($tag);
     }
 
-    this.innerHTML = '';
+    this.innerHTML = "";
     this.appendChild($el);
   }
 }
@@ -39,7 +39,7 @@ class ArticleBlock extends HTMLElement {
 
 class BtnDeco extends HTMLElement {
   connectedCallback() {
-    for (const variant of ['alpha', 'beta', 'gamma']) {
+    for (const variant of ["alpha", "beta", "gamma"]) {
       const child = document.createElement("btn-deco-item");
       child.classList.add(variant);
       this.appendChild(child);

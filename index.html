@@ -14,12 +14,19 @@
 <body>
   <div class="main-box">
     <header class="head-content">
-      <div class="head-main-content">
-        <div class="logo">
-          <img id="blog-logo" src="http://SmokeyDays.top/wordpress/wp-content/uploads/2018/10/cropped-章鱼君.jpg">
-          Smokey_Days's Blog
+        <div class="head-main-content">
+          <div class="logo">
+            <img id="blog-logo" src="http://SmokeyDays.top/wordpress/wp-content/uploads/2018/10/cropped-章鱼君.jpg" >
+            Smokey_Days's Blog
+          </div>
+          <div class="head-space"></div>
+          <div class="search-bar">
+            <form class="search-bar-form">
+              <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
+            </form>
+            <img class="search-bar-icon"  src="./imgs/search.svg">
+          </div>
         </div>
-      </div>
     </header>
     <main class="body-content">
       <div class="left-column display-when-big">
@@ -37,22 +44,8 @@
         </dynamic-btn>
       </div>
       <div class="mid-column">
-        <div class="deco"></div>
         <div class="mid-title">文章列表</div>
-        <div class="article-list">
-          <article-block>
-            <div class="article-card">
-              <div class="article-title" data-text="这个标题出于测试的缘故特意被写得有点长请不要介意">这个标题出于测试的缘故特意被写得有点长请不要介意</div>
-              <div class="article-digest">这段话主要出于测试用途，那我就念两句诗吧：力微任重久神疲，再竭衰庸定不支。苟利国家生死以，岂因祸福避趋之。</div>
-              <div class="article-taglist">
-                <span class="article-tag">测试</span>
-                <span class="article-tag">诗歌</span>
-              </div>
-            </div>
-            <article-deco></article-deco>
-          </article-block>
-        </div>
-
+        <div class="article-list"></div>
       </div>
       <div class="right-column display-when-big">
         <span class="tag">测试 10</span><span class="tag">诗歌 10</span><span class="tag">文章 10</span>
@@ -77,7 +70,9 @@
     </div>
     <article-deco></article-deco>
   </template>
-  <script src="./render/customElements.js"></script>
-  <script src="./render/docRender.js"></script>
-  <script src="./web/docRequester.js"></script>
+  <script src="./js/globalValue.js"></script>
+  <script src="./js/render/customElements.js"></script>
+  <script src="./js/render/docRender.js"></script>
+  <script src="./js/web/docRequester.js"></script>
+  <script src="./js/render/clickEvents.js"></script>
 </body>

@@ -1,24 +1,9 @@
+const pageSize = 10;
+
+let nowPage = 1;
+let lastSearch = "";
+
 /*
-blogArticle:
-    title:
-    desc:
-    text:
-    author:
-    id:
-*/
-
-
-
-function blogArticleRender(blogArticle) {
-  /** @type {ArticleBlock} */
-  const $articleBlock = document.createElement("article-block");
-  const $articleList = document.querySelector(".article-list");
-  $articleList.appendChild($articleBlock);
-  $articleBlock.render(blogArticle);
-
-  return $articleBlock;
-}
-
 const testArticles = [{
   "id": 1,
   "title": "I'm Tom Marvolo Riddle",
@@ -38,7 +23,4 @@ const testArticles = [{
   "popularity": 233,
   "invalid": 0
 }]
-
-for (const testArticle of testArticles) {
-  blogArticleRender(testArticle);
-}
+*/
