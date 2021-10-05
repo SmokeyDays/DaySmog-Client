@@ -6,28 +6,43 @@ param:
 */
 
 function doWithArticles(param){
-    const ret = JSON.parse(param);
-    console.log(ret);
-    for(let i of ret){
-        blogArticleRender(i);
+  console.log(param);
+  new Promise((resolve, reject) => {
+      console.log('Initial');
+
+      resolve();
+  })
+  let promise = new Promise((res, rej) => {
+    const $articleBlock = document.querySelectorAll("article-block");
+    for(const i of $articleBlock){
+      i.remove();
     }
+    // const $articleList = document.querySelector("#article-list");
+    // for(const i of $articleList.childNodes){
+    //   $articleList.removeChild
+    // }
+    res();
+  }).then(res => {
+    console.log("test");
+    for(const i of param){
+      blogArticleRender(i);
+    }
+  });
 }
 
 function renewArticleByPages(param){
-    console.log("I'v done it");
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            doWithArticles(this.responseText);
-        }
-    }
-    xhttp.open("GET","http://localhost:8080/blog/get-article-by-page?current="+param.cur+"&size="+param.size+"&keyword="+param.keyword,true);
-    xhttp.send();
-    
+  console.log("I'v done it");
+  fetch("http://localhost:8080/blog/get-article-by-page?current="+param.cur+"&size="+param.size+"&keyword="+param.keyword)
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(res) {
+      doWithArticles(res);
+    });
 }
 
 const standardParam = {
-    cur: 1,size: 10, keyword: ""
+  cur: 1,size: 10, keyword: ""
 }
 
-// getArticleByPages(standardParam);
+renewArticleByPages(standardParam);

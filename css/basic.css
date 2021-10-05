@@ -93,7 +93,7 @@ dynamic-btn {
 
 	cursor: url("../imgs/cursor-r.png"), default;
 }
-.article-block:hover .article-card {
+article-block:hover .article-card {
 	background-color: #1f1f1f;
 }
 

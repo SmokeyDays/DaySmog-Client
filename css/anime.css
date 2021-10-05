@@ -1,17 +1,19 @@
 /* 边框动画 */
 
-.article-block {
+article-block {
+    display: block;
     position: relative;
 }
 
-.article-deco {
+article-deco {
+    display: block;
     position: absolute;
     z-index: -1;
     
     overflow: hidden;
 }
 
-.article-block:hover .article-deco {
+article-block:hover article-deco {
     top: -1px;
     bottom: -1px;
     left: -1px;
@@ -66,11 +68,11 @@ article-deco-item.gamma {
 
 /* 故障文字动画 */
 
-.article-block:hover .article-title{
+article-block:hover .article-title{
     position: relative;
 }
 
-.article-block:hover .article-title:before {
+article-block:hover .article-title:before {
     content: attr(data-text);
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -83,7 +85,7 @@ article-deco-item.gamma {
     animation: noise-anim 3s infinite linear alternate-reverse;
 }
 
-.article-block:hover .article-title::after {
+article-block:hover .article-title::after {
     content: attr(data-text);
 	overflow: hidden;
 	text-overflow: ellipsis;
