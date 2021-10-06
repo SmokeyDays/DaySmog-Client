@@ -30,4 +30,10 @@ function generateArticleRequest(keyword){
   renewArticleByPages(param);
 }
 
-generateArticleRequest("");
+async function deleteArticle(articleId) {
+  const res = await fetch(serverLocation + "/blog/delete-article?articleId=" +
+    fixedEncodeURIComponent(articleId) + "&encryption=" +
+    fixedEncodeURIComponent(cookieGetter("session")) + "&userName=" +
+    fixedEncodeURIComponent(nowUserName), { method: "DELETE" });
+  return await res.text();
+}

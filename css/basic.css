@@ -42,7 +42,7 @@ body {
 	border-radius: 20px;
 }
 
-.spacer {
+flex-spacer {
 	flex: 1;
 }
 
@@ -330,11 +330,11 @@ login-box {
 	flex-direction: column;
 	align-items: center;
 
-	padding: 2rem;
+	padding: 2rem 2em 1em;
 
 	z-index: 200;
 
-	background-color: #ffffff;
+	background-color: #1f1f1f;
 	border: 2px solid #08ffea;
 	border-radius: 20px;
 	
@@ -368,15 +368,16 @@ login-input-btn {
 .close-login-box {
 	position: absolute;
 	top: -1.5rem;
-	right: -0.75rem;
-	height: 2rem;
-	width: 2rem;
+	right: -1.5rem;
+	height: 3rem;
+	width: 3rem;
 
 	font-size: 2rem;
-	color: red;
+	text-align: center;
+	color: #08ffea;
+	user-select: none;
 
 	border: 2px solid #08ffea;
 	border-radius: 999px;
-	background-color: #e7e7e7;
-
+	background-color: #1f1f1f;
 }

@@ -1,5 +1,9 @@
-/* 文章概览 */
+/* SPACER */
 
+class FlexSpacer extends HTMLElement {}
+window.customElements.define("flex-spacer", FlexSpacer);
+
+/* 文章概览 */
 class ArticleDeco extends HTMLElement {
   connectedCallback() {
     for (const variant of ["alpha", "beta", "gamma"]) {
@@ -80,7 +84,7 @@ window.customElements.define("dynamic-btn", DynamicBtn);
 
 class LeftBtnList extends HTMLElement {
   connectedCallback(){
-    for (const i of [["btn-resume","简历"],["btn-article-list","文章"],["btn-about","关于"]]){
+    for (const i of [["btn-resume","简历"],["btn-article-list","文章"],["btn-about","关于"],["btn-user","用户"]]){
       const child = document.createElement("dynamic-btn");
       console.log(i);
       child.render(i[0],i[1]);
@@ -114,6 +118,11 @@ class ArticleDetail extends HTMLElement {
 
     const $deleteArticle = $el.querySelector(".delete-article");
     $deleteArticle.render("delete-article","删除");
+    $deleteArticle.addEventListener("click", () => {
+      deleteArticle(article.id).then((res) => {
+        console.log(res);
+      })
+    });
 
     const $editArticle = $el.querySelector(".edit-article");
     $editArticle.render("edit-article","编辑");
@@ -156,6 +165,7 @@ class PageManager extends HTMLElement {
       $nxtPage.remove();
     }
 
+    this.innerHTML = "";
     this.appendChild($el);
   }
 }
@@ -163,12 +173,52 @@ window.customElements.define("page-manager",PageManager);
 
 /* 用户系统 */
 
+class LoginBox extends HTMLElement {
+  static template = document.querySelector("#login-box-template");
+  connectedCallback() {
+    const $el = document.importNode(LoginBox.template.content, true);
+    
+    $el.querySelector(".close-login-box").addEventListener("click", () =>{
+      loginBoxClose();
+    });
 
+    this.innerHTML = "";
+    this.appendChild($el);
+  }
+}
+window.customElements.define("login-box",LoginBox);
 
+class LoginInputBtn extends HTMLElement {
+  connectedCallback() {
+    const $btnLogin = document.createElement("dynamic-btn");
+    $btnLogin.render("btn-login","登录");
+    $btnLogin.addEventListener("click", () => {
+      userLogin(document.querySelector(".username-input").value,
+        passwdEncrypt(document.querySelector(".passwd-input").value))
+        .then(res =>{
+          console.log(res);
+          nowUserName = document.querySelector(".username-input").value;
+          cookieSaver("session", res.respondSession);
+          loginBoxClose();
+        });
+    })
+    
+    const $btnRegister = document.createElement("dynamic-btn");
+    $btnRegister.render("btn-register","注册");
+    $btnRegister.addEventListener("click", () => {
+      userRegister(document.querySelector(".username-input").value,
+        passwdEncrypt(document.querySelector(".passwd-input").value))
+        .then(res => {
+          console.log(res);
+        });
+    })
 
+    const $newSpacer = document.createElement("flex-spacer");
 
-
-
-
-
-
+    this.innerHTML = "";
+    this.appendChild($btnLogin);
+    this.appendChild($newSpacer);
+    this.appendChild($btnRegister);
+  }
+}
+window.customElements.define("login-input-btn",LoginInputBtn);

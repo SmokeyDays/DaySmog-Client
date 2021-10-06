@@ -19,31 +19,11 @@
             <img id="blog-logo" src="http://SmokeyDays.top/wordpress/wp-content/uploads/2018/10/cropped-章鱼君.jpg" >
             Smokey_Days's Blog
           </div>
-          <div class="spacer"></div>
+          <flex-spacer></flex-spacer>
           <div class="search-bar">
             <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
             <img class="search-bar-icon"  src="./imgs/search.svg">
           </div>
-          <login-box>
-            <div class="spacer"></div>
-            <div class="login-input-box">
-              <div class="close-login-box">✖</div>
-              <input class="username-input" maxlength=20 placeholder="请输入用户名">
-              <input class="passwd-input" maxlength=20 placeholder="请输入密码">
-              <login-input-btn>
-                <dynamic-btn id="btn-resume">
-                  <div class="btn-text">登录</div>
-                  <btn-deco></btn-deco>
-                </dynamic-btn>
-                <div class="spacer"></div>
-                <dynamic-btn id="btn-resume">
-                  <div class="btn-text">注册</div>
-                  <btn-deco></btn-deco>
-                </dynamic-btn>
-              </login-input-btn>
-            </div>
-            <div class="spacer"></div>
-          </login-box>
         </div>
     </header>
     <main class="body-content">
@@ -87,7 +67,7 @@
     </div>
     <div class="article-deatil-footer">
       <dynamic-btn class="delete-article"></dynamic-btn>
-      <div class="spacer"></div>
+      <flex-spacer></flex-spacer>
       <dynamic-btn class="edit-article"></dynamic-btn>
     </div>
   </template>
@@ -97,14 +77,27 @@
   </template>
   <template id="page-manager-template">
     <dynamic-btn class="cur-page"></dynamic-btn>
-    <div class="spacer"></div>
+    <flex-spacer></flex-spacer>
     <dynamic-btn class="pre-page"></dynamic-btn>
     <dynamic-btn class="nxt-page"></dynamic-btn>
   </template>
+  <template id="login-box-template">
+    <flex-spacer></flex-spacer>
+    <div class="login-input-box">
+      <div class="close-login-box">✖</div>
+      <input class="username-input" maxlength=20 placeholder="请输入用户名">
+      <input class="passwd-input" maxlength=20 placeholder="请输入密码">
+      <login-input-btn></login-input-btn>
+    </div>
+    <flex-spacer></flex-spacer>
+  </template>
+  <script src="./js/tools/md5.js"></script>
   <script src="./js/tools/globalValue.js"></script>
   <script src="./js/tools/publicFunction.js"></script>
+  <script src="./js/web/userRequester.js"></script>
   <script src="./js/render/customElements.js"></script>
   <script src="./js/render/docRender.js"></script>
   <script src="./js/web/docRequester.js"></script>
   <script src="./js/render/clickEvents.js"></script>
+  <script src="./js/scriptInitialize.js"></script>
 </body>

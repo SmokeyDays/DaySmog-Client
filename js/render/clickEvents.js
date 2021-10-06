@@ -14,3 +14,7 @@ document.querySelector("#btn-article-list").addEventListener("click", () => {
   nowPage = 1;
   generateArticleRequest("");
 });
+
+document.querySelector("#btn-user").addEventListener("click", () => {
+  generateLoginBox("");
+});

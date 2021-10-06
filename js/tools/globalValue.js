@@ -5,3 +5,4 @@ let nowPage = 1;
 let maxArticle = 0;
 let maxPage = 0;
 let lastSearch = "";
+let nowUserName = "";

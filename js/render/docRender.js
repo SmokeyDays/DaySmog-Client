@@ -57,3 +57,14 @@ function blogArticleDetailRender(blogArticle) {
 
   return $articleDetail;
 }
+
+function generateLoginBox(){
+  const $loginBox = document.createElement("login-box");
+  const $headMainContent = document.querySelector(".head-main-content");
+  $headMainContent.appendChild($loginBox);
+}
+
+function loginBoxClose(){
+  const $loginBox = document.querySelector("login-box");
+  $loginBox.remove();
+}
