@@ -16,6 +16,11 @@ body {
 }
 
 .head-content {
+	left: 0;
+	right: 0;
+	top: 0;
+	position: fixed;
+	z-index: 99;
 	border-bottom: 1px solid #e7e7e7;
 }
 
@@ -40,6 +45,8 @@ body {
 .spacer {
 	flex: 1;
 }
+
+/* 搜索框 */
 
 .search-bar {
 	flex: 0 0 300px;
@@ -84,7 +91,7 @@ body {
 .body-content {
 	max-width: 1130px;
 	display: flex;
-	padding: 20px 20px;
+	padding: 60px 20px;
 	font-size: 24px;
 	margin: auto;
 }
@@ -132,6 +139,8 @@ dynamic-btn {
 	font-size: 1.8rem;
 	font-weight: 600;
 }
+
+/* 文章概览 */
 
 .article-card {
 	margin: 0.4rem 0;
@@ -182,6 +191,8 @@ article-block:hover .article-card {
 	color: #08ffea;
 }
 
+/* 文章详情 */
+
 .article-detail-header {
 	margin: 0.4rem 0;
 	padding: 0.8rem;
@@ -195,8 +206,19 @@ article-block:hover .article-card {
 	padding: 1.2rem;
 }
 
+.article-content {
+	word-break: break-all;
+}
+
 .line-of-article-content {
+	
 	margin: 0.2rem 0;
+}
+
+.article-deatil-footer {
+	display: flex;
+	padding: 0 1rem;
+	margin: 0 -1rem;
 }
 
 
@@ -282,4 +304,79 @@ page-manager {
 /* 鼠标 */
 .article-card, .dynamic-btn, .tag, .search-bar-icon {
 	cursor: url("../imgs/cursor-r.png"), default;
+}
+
+/* 登录窗口 */
+login-box {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	height: 100vh;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+
+	background-color: rgba(0,0,0,0.7);
+	
+	transition: height .3s;
+}
+
+.login-input-box {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 2rem;
+
+	z-index: 200;
+
+	background-color: #ffffff;
+	border: 2px solid #08ffea;
+	border-radius: 20px;
+	
+	transition: height .3s;
+}
+
+.username-input, .passwd-input {
+	
+	padding: 5px;
+	
+	width: 100%;
+	padding: 1rem 1rem;
+	margin: 0.5rem 0;
+	height: 1.2rem;
+	box-sizing: border-box;
+
+	font-size: 14px;
+
+	background-color: #353536;
+	border-radius: 5px;
+	color: #e7e7e7;
+	caret-color:#00dffc;
+}
+
+login-input-btn {
+	display: flex;
+	width: 100%;
+	margin: 0 -1rem;
+}
+
+.close-login-box {
+	position: absolute;
+	top: -1.5rem;
+	right: -0.75rem;
+	height: 2rem;
+	width: 2rem;
+
+	font-size: 2rem;
+	color: red;
+
+	border: 2px solid #08ffea;
+	border-radius: 999px;
+	background-color: #e7e7e7;
+
 }

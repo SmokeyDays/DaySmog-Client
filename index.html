@@ -24,6 +24,26 @@
             <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
             <img class="search-bar-icon"  src="./imgs/search.svg">
           </div>
+          <login-box>
+            <div class="spacer"></div>
+            <div class="login-input-box">
+              <div class="close-login-box">✖</div>
+              <input class="username-input" maxlength=20 placeholder="请输入用户名">
+              <input class="passwd-input" maxlength=20 placeholder="请输入密码">
+              <login-input-btn>
+                <dynamic-btn id="btn-resume">
+                  <div class="btn-text">登录</div>
+                  <btn-deco></btn-deco>
+                </dynamic-btn>
+                <div class="spacer"></div>
+                <dynamic-btn id="btn-resume">
+                  <div class="btn-text">注册</div>
+                  <btn-deco></btn-deco>
+                </dynamic-btn>
+              </login-input-btn>
+            </div>
+            <div class="spacer"></div>
+          </login-box>
         </div>
     </header>
     <main class="body-content">
@@ -66,7 +86,9 @@
       </div>
     </div>
     <div class="article-deatil-footer">
-      
+      <dynamic-btn class="delete-article"></dynamic-btn>
+      <div class="spacer"></div>
+      <dynamic-btn class="edit-article"></dynamic-btn>
     </div>
   </template>
   <template id="dynamic-btn-template">

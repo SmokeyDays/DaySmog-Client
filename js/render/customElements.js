@@ -112,6 +112,12 @@ class ArticleDetail extends HTMLElement {
       $tagList.appendChild($tag);
     }
 
+    const $deleteArticle = $el.querySelector(".delete-article");
+    $deleteArticle.render("delete-article","删除");
+
+    const $editArticle = $el.querySelector(".edit-article");
+    $editArticle.render("edit-article","编辑");
+
     this.innerHTML = "";
     this.appendChild($el);
   }
@@ -155,7 +161,7 @@ class PageManager extends HTMLElement {
 }
 window.customElements.define("page-manager",PageManager);
 
-
+/* 用户系统 */
 
 
 

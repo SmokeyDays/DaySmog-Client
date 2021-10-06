@@ -1,3 +1,4 @@
+/* 搜索框事件 */
 document.querySelector(".search-bar-input").addEventListener("keyup", (event) => {
   if(event.keyCode == 13){
     generateArticleRequest(document.querySelector(".search-bar-input").value || "");

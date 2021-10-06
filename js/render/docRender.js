@@ -7,10 +7,7 @@ blogArticle:
     id:
 */
 
-
-
 function blogArticleRender(blogArticle) {
-  /** @type {ArticleBlock} */
   const $articleBlock = document.createElement("article-block");
   const $articleList = document.querySelector(".article-list");
   $articleList.appendChild($articleBlock);
@@ -18,12 +15,6 @@ function blogArticleRender(blogArticle) {
 
   return $articleBlock;
 }
-
-/*
-for (const testArticle of testArticles) {
-  blogArticleRender(testArticle);
-}
-*/
 
 function doWithArticles(param,keyword){
   renewMaxPage(param.total);

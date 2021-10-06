@@ -6,7 +6,7 @@ param:
 */
 
 function renewArticleByPages(param){
-  fetch("http://localhost:8080/blog/get-article-by-page?current=" + 
+  fetch(serverLocation + "/blog/get-article-by-page?current=" + 
     fixedEncodeURIComponent(param.cur) + "&size=" + 
     fixedEncodeURIComponent(param.size) + "&keyword=" + 
     fixedEncodeURIComponent(param.keyword))
@@ -30,4 +30,4 @@ function generateArticleRequest(keyword){
   renewArticleByPages(param);
 }
 
-// generateArticleRequest("");
+generateArticleRequest("");
