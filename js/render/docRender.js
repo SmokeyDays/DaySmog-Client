@@ -24,3 +24,38 @@ for (const testArticle of testArticles) {
   blogArticleRender(testArticle);
 }
 */
+
+function doWithArticles(param,keyword){
+  const $midColumn = document.querySelector('.mid-column');
+  for(const i of [...$midColumn.childNodes]){
+    i.remove();
+  }
+
+  const $midTitle = document.createElement('div');
+  $midTitle.className = "mid-title";
+  $midTitle.innerHTML = (keyword == null || keyword == "")? "文章列表" : "以\"" + keyword + "\"为关键字的搜索结果";
+
+  const $articleList = document.createElement('div');
+  $articleList.className = "article-list";
+
+  $midColumn.appendChild($midTitle);
+  $midColumn.appendChild($articleList);
+  
+
+  for(const i of param){
+    blogArticleRender(i);
+  }
+}
+
+function blogArticleDetailRender(blogArticle) {
+  const $midColumn = document.querySelector('.mid-column');
+  for(const i of [...$midColumn.childNodes]){
+    i.remove();
+  }
+
+  const $articleDetail = document.createElement("article-detail");
+  $midColumn.appendChild($articleDetail);
+  $articleDetail.render(blogArticle);
+
+  return $articleDetail;
+}

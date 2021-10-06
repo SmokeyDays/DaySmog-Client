@@ -21,9 +21,7 @@
           </div>
           <div class="head-space"></div>
           <div class="search-bar">
-            <form class="search-bar-form">
-              <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
-            </form>
+            <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
             <img class="search-bar-icon"  src="./imgs/search.svg">
           </div>
         </div>
@@ -44,8 +42,22 @@
         </dynamic-btn>
       </div>
       <div class="mid-column">
-        <div class="mid-title">文章列表</div>
-        <div class="article-list"></div>
+        <article-detail>
+          <div class="article-detail-header">
+            <div class="article-title">测试</div>
+            <div class="article-taglist">
+              <span class="article-tag">测试</span>
+            </div>
+          </div>
+          <div class="article-detail-body">
+            <div class="article-content">
+              <a class="line-of-article-content">这段话主要出于测试用途，那我就念两句诗吧：力微任重久神疲，再竭衰庸定不支。苟利国家生死以，岂因祸福避趋之。</a>
+            </div>
+          </div>
+          <div class="article-deatil-footer">
+
+          </div>
+        </article-detail>
       </div>
       <div class="right-column display-when-big">
         <span class="tag">测试 10</span><span class="tag">诗歌 10</span><span class="tag">文章 10</span>
@@ -70,7 +82,22 @@
     </div>
     <article-deco></article-deco>
   </template>
-  <script src="./js/globalValue.js"></script>
+  <template id="article-detail-template">
+    <div class="article-detail-header">
+      <div class="article-title">title</div>
+      <div class="article-taglist"></div>
+    </div>
+    <div class="article-detail-body">
+      <div class="article-content">
+        <!-- <a class="line-of-article-content">这段话主要出于测试用途，那我就念两句诗吧：力微任重久神疲，再竭衰庸定不支。苟利国家生死以，岂因祸福避趋之。</a> -->
+      </div>
+    </div>
+    <div class="article-deatil-footer">
+
+    </div>
+  </template>
+  <script src="./js/tools/globalValue.js"></script>
+  <script src="./js/tools/publicFunction.js"></script>
   <script src="./js/render/customElements.js"></script>
   <script src="./js/render/docRender.js"></script>
   <script src="./js/web/docRequester.js"></script>

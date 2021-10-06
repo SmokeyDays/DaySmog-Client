@@ -132,8 +132,6 @@ dynamic-btn {
 	display: grid;
 	grid-template-columns: 1fr 4rem 4rem;
 	background-color: #353536;
-
-	
 }
 article-block:hover .article-card {
 	background-color: #1f1f1f;
@@ -176,6 +174,25 @@ article-block:hover .article-card {
 	border-radius: 999px;
 	color: #08ffea;
 }
+
+.article-detail-header {
+	margin: 0.4rem 0;
+	padding: 0.8rem;
+	display: grid;
+	grid-template-columns: 1fr 4rem 4rem;
+}
+
+.article-detail-body {
+	background-color: #353536;
+	margin: 0.8rem 0;
+	padding: 1.2rem;
+}
+
+.line-of-article-content {
+	margin: 0.2rem 0;
+}
+
+
 
 
 
