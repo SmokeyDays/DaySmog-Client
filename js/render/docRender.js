@@ -26,28 +26,35 @@ for (const testArticle of testArticles) {
 */
 
 function doWithArticles(param,keyword){
-  const $midColumn = document.querySelector('.mid-column');
+  renewMaxPage(param.total);
+
+  const $midColumn = document.querySelector(".mid-column");
   for(const i of [...$midColumn.childNodes]){
     i.remove();
   }
 
-  const $midTitle = document.createElement('div');
+  const $midTitle = document.createElement("div");
   $midTitle.className = "mid-title";
   $midTitle.innerHTML = (keyword == null || keyword == "")? "文章列表" : "以\"" + keyword + "\"为关键字的搜索结果";
 
-  const $articleList = document.createElement('div');
+  const $articleList = document.createElement("div");
   $articleList.className = "article-list";
+
+  const $pageManager = document.createElement("page-manager")
+  $pageManager.render(nowPage);
 
   $midColumn.appendChild($midTitle);
   $midColumn.appendChild($articleList);
-  
+  $midColumn.appendChild($pageManager);
 
-  for(const i of param){
+  for(const i of param.body){
     blogArticleRender(i);
   }
 }
 
 function blogArticleDetailRender(blogArticle) {
+  nowPage = 1;
+  
   const $midColumn = document.querySelector('.mid-column');
   for(const i of [...$midColumn.childNodes]){
     i.remove();

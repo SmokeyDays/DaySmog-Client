@@ -19,7 +19,7 @@
             <img id="blog-logo" src="http://SmokeyDays.top/wordpress/wp-content/uploads/2018/10/cropped-章鱼君.jpg" >
             Smokey_Days's Blog
           </div>
-          <div class="head-space"></div>
+          <div class="spacer"></div>
           <div class="search-bar">
             <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
             <img class="search-bar-icon"  src="./imgs/search.svg">
@@ -28,18 +28,7 @@
     </header>
     <main class="body-content">
       <div class="left-column display-when-big">
-        <dynamic-btn id="btn-1">
-          <div class="btn-text">简历</div>
-          <btn-deco></btn-deco>
-        </dynamic-btn>
-        <dynamic-btn id="btn-2">
-          <div class="btn-text">文章</div>
-          <btn-deco></btn-deco>
-        </dynamic-btn>
-        <dynamic-btn id="btn-3">
-          <div class="btn-text">关于</div>
-          <btn-deco></btn-deco>
-        </dynamic-btn>
+        <left-btn-list></left-btn-list>
       </div>
       <div class="mid-column">
         <article-detail>
@@ -58,6 +47,8 @@
 
           </div>
         </article-detail>
+        <page-manager>
+        </page-manager>
       </div>
       <div class="right-column display-when-big">
         <span class="tag">测试 10</span><span class="tag">诗歌 10</span><span class="tag">文章 10</span>
@@ -93,8 +84,18 @@
       </div>
     </div>
     <div class="article-deatil-footer">
-
+      
     </div>
+  </template>
+  <template id="dynamic-btn-template">
+    <div class="btn-text">text</div>
+    <btn-deco></btn-deco>
+  </template>
+  <template id="page-manager-template">
+    <dynamic-btn class="cur-page"></dynamic-btn>
+    <div class="spacer"></div>
+    <dynamic-btn class="pre-page"></dynamic-btn>
+    <dynamic-btn class="nxt-page"></dynamic-btn>
   </template>
   <script src="./js/tools/globalValue.js"></script>
   <script src="./js/tools/publicFunction.js"></script>

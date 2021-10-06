@@ -6,6 +6,10 @@ document.querySelector(".search-bar-input").addEventListener("keyup", (event) =>
 document.querySelector(".search-bar-icon").addEventListener("click", () => {
   generateArticleRequest(document.querySelector(".search-bar-input").value || "");
 });
-document.querySelector("#btn-2").addEventListener("click", () => {
+
+
+/* 按钮事件 */
+document.querySelector("#btn-article-list").addEventListener("click", () => {
+  nowPage = 1;
   generateArticleRequest("");
 });

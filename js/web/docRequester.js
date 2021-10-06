@@ -19,6 +19,9 @@ function renewArticleByPages(param){
 
 
 function generateArticleRequest(keyword){
+  if(keyword != lastSearch){
+    nowPage = 1;
+  }
   lastSearch = keyword;
   const param = {
     cur: nowPage,size: pageSize, keyword: keyword
