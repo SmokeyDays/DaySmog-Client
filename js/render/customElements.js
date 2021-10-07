@@ -121,7 +121,7 @@ class ArticleDetail extends HTMLElement {
 
     const $author = $el.querySelector(".article-author");
     $author.innerHTML = article.author;
-    
+
     const $tagList = $el.querySelector(".article-taglist");
     if(article.tags != "" && article.tags != undefined ){
       for (let tag of article.tags.split(/[ ]+/)) {
@@ -137,8 +137,9 @@ class ArticleDetail extends HTMLElement {
     $deleteArticle.render("delete-article","删除");
     $deleteArticle.addEventListener("click", () => {
       deleteArticle(article.id).then((res) => {
+        console.log(res);
         switch(res) {
-          case 0:
+          case "0":
             generateAlert("删除成功");
             break;
           default:
@@ -204,7 +205,14 @@ class LoginBox extends HTMLElement {
   connectedCallback() {
     const $el = document.importNode(LoginBox.template.content, true);
     
-    $el.querySelector(".close-login-box").addEventListener("click", () =>{
+    const $nowUser = $el.querySelector(".now-user");
+    $nowUser.innerText = ((nowUserName == "" || nowUserName == undefined) ? "尚未登录" : "当前登录用户: [" + nowUserName + "] 点击注销");
+    $nowUser.addEventListener("click", () => {
+      userLogout();
+      loginBoxClose();
+    })
+
+    $el.querySelector(".close-login-box").addEventListener("click", () => {
       loginBoxClose();
     });
 

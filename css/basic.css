@@ -308,6 +308,7 @@ article-block:hover .article-card {
 }
 
 .article-content {
+	white-space: pre-wrap;
 	word-break: break-all;
 }
 
@@ -352,6 +353,7 @@ article-block:hover .article-card {
 	padding: 1.2rem;
 	width: 100%;
 	height: 50rem;
+	white-space: pre-wrap;
 	word-break: break-all;
 	box-sizing: border-box;
 	background-color: #353536;
@@ -537,4 +539,14 @@ login-input-btn {
 	border: 2px solid #08ffea;
 	border-radius: 999px;
 	background-color: #1f1f1f;
+}
+
+.now-user {
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 1.1rem;
+	margin-bottom: 0.8rem;
+	white-space: nowrap;
+	text-align: center;
+	color: #606060;
 }

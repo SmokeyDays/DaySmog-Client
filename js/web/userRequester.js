@@ -20,3 +20,15 @@ function userLogin(name, passwd) {
     method: 'POST'
   }).then(res => res.json());
 }
+
+function userLogout() {
+  return fetch(serverLocation + "/user/logout?encryption=" +
+  fixedEncodeURIComponent(cookieGetter("session")) + "&userName=" +
+  fixedEncodeURIComponent(nowUserName), { method: "POST" }).then(res => {
+    nowUserName = "";
+    cookieSaver("session", "");
+    res.text()
+  }).then(res => {
+    console.log(res);
+  });
+}
