@@ -15,23 +15,37 @@
   <div class="main-box">
     <header class="head-content">
         <div class="head-main-content">
-          <div class="logo">
+          <div class="logo display-when-big">
             <img id="blog-logo" src="http://SmokeyDays.top/wordpress/wp-content/uploads/2018/10/cropped-章鱼君.jpg" >
             Smokey_Days's Blog
           </div>
-          <flex-spacer></flex-spacer>
+          <flex-spacer class="display-when-big"></flex-spacer>
           <div class="search-bar">
             <input class="search-bar-input" maxlength=30 placeholder="仅支持搜索标题，内容或标签的子串。"></input>
             <img class="search-bar-icon"  src="./imgs/search.svg">
           </div>
+          <img class="btn-menu display-when-small" src="./imgs/menu.svg">
         </div>
-        
+        <small-menu></small-menu>
     </header>
     <main class="body-content">
       <div class="left-column display-when-big">
         <left-btn-list></left-btn-list>
       </div>
-      <div class="mid-column"></div>
+      <div class="mid-column">
+        <article-block>
+          <div class="article-card">
+            <div class="article-title" data-text="title">title</div>
+            <div class="article-hot">
+              <img class="article-hot-img" src="./imgs/hot.svg">
+              <span class="article-hot-count">0</span>
+            </div>
+            <div class="article-digest">digest</div>
+            <div class="article-taglist"></div>
+          </div>
+          <article-deco></article-deco>
+        </article-block>
+      </div>
       <div class="right-column display-when-big"></div>
   </div>
   <footer class="foot-content">
@@ -49,6 +63,10 @@
       <div class="article-title" data-text="title">title</div>
       <div class="article-digest">digest</div>
       <div class="article-taglist"></div>
+      <div class="article-hot">
+        <img class="article-hot-img" src="./imgs/hot.svg">
+        <span class="article-hot-count">0</span>
+      </div>
     </div>
     <article-deco></article-deco>
   </template>
@@ -56,10 +74,13 @@
     <div class="article-detail-header">
       <div class="article-title">title</div>
       <div class="article-taglist"></div>
+      <div class="article-hot">
+        <img class="article-hot-img" src="./imgs/hot.svg">
+        <span class="article-hot-count">0</span>
+      </div>
     </div>
     <div class="article-detail-body">
       <div class="article-content">
-        <!-- <a class="line-of-article-content">这段话主要出于测试用途，那我就念两句诗吧：力微任重久神疲，再竭衰庸定不支。苟利国家生死以，岂因祸福避趋之。</a> -->
       </div>
     </div>
     <div class="article-deatil-footer">

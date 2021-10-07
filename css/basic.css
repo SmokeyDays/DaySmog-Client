@@ -67,7 +67,7 @@ flex-spacer {
 /* 搜索框 */
 
 .search-bar {
-	flex: 0 0 300px;
+	flex: 1 1 200px;
 	border: 1px solid #e7e7e7;
 	border-radius: 0;
 	display: flex;
@@ -99,6 +99,33 @@ flex-spacer {
 .search-bar-icon {
 	width: 1.5rem;
 	padding: 0 0.5rem;
+}
+
+/* 菜单 */
+.btn-menu {
+	width: 1.5rem;
+	margin-left: 1rem;
+}
+
+small-menu {
+	position: fixed;
+	top: -100vh;
+	left: 0px;
+	right: 0px;
+	height: 100vh;
+	padding-top: 6rem;
+	box-sizing: border-box;
+
+	display: flex;
+  align-items: center;
+  flex-direction: column;
+
+	transition: 0.3s;
+	background-color: #101011;
+}
+
+small-menu.show {
+	top: 0;
 }
 
 /* 通知框 */
@@ -229,8 +256,27 @@ article-block:hover .article-card {
 
 .article-tag {
 	padding: 0.04rem 0.5rem 0.16rem;
+	margin-right: 0.2rem;
 	border: 1px solid #08ffea;
 	border-radius: 999px;
+	color: #08ffea;
+}
+
+.article-hot {
+	grid-column: 3/4;
+	grid-row: 1/2;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.article-hot-img {
+	height: 1.2rem;
+	width: 1.2rem;
+	margin-right: .2rem;
+}
+
+.article-hot-count {
 	color: #08ffea;
 }
 
@@ -386,6 +432,16 @@ main-tag:hover {
 @media only screen and (max-width: 814px){
 	.display-when-big {
 		display: none;
+	}
+	
+}
+
+@media only screen and (min-width: 814px){
+	.display-when-small {
+		display: none;
+	}
+	.search-bar {
+		flex: 0 0 300px;
 	}
 }
 

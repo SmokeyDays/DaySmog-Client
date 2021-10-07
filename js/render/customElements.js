@@ -31,6 +31,9 @@ class ArticleBlock extends HTMLElement {
     const $digest = $el.querySelector(".article-digest");
     $digest.innerHTML = article.description;
 
+    const $hot = $el.querySelector(".article-hot-count");
+    $hot.innerHTML = article.popularity || 0;
+
     const $tagList = $el.querySelector(".article-taglist");
     if(article.tags != "" && article.tags != undefined ){
       for (let tag of article.tags.split(/[ ]+/)) {
@@ -69,13 +72,12 @@ window.customElements.define("btn-deco-item", BtnDecoItem);
 class DynamicBtn extends HTMLElement {
   static template = document.querySelector("#dynamic-btn-template");
   render(id,text) {
-    this.setAttribute("id",id);
+    this.classList.add(id);
 
     const $el = document.importNode(DynamicBtn.template.content, true);
     
     const $btnText = $el.querySelector('.btn-text');
     $btnText.textContent = text;
-    console.log($btnText);
 
     this.innerHTML = "";
     this.appendChild($el);
@@ -83,18 +85,19 @@ class DynamicBtn extends HTMLElement {
 }
 window.customElements.define("dynamic-btn", DynamicBtn);
 
-
 class LeftBtnList extends HTMLElement {
-  connectedCallback(){
-    for (const i of [["btn-resume","简历"],["btn-article-list","文章"],["btn-about","关于"],["btn-user","用户"],["btn-new","新建"]]){
+  connectedCallback() {
+    for (const i of menuList){
       const child = document.createElement("dynamic-btn");
-      console.log(i);
       child.render(i[0],i[1]);
       this.appendChild(child);
     }
   }
 }
 window.customElements.define("left-btn-list",LeftBtnList);
+
+class SmallMenu extends LeftBtnList {}
+window.customElements.define("small-menu",SmallMenu);
 
 /* 文章详情 */
 
@@ -109,6 +112,9 @@ class ArticleDetail extends HTMLElement {
 
     const $content = $el.querySelector(".article-content");
     $content.innerHTML = article.text;
+
+    const $hot = $el.querySelector(".article-hot-count");
+    $hot.innerHTML = article.popularity || 0;
 
     const $tagList = $el.querySelector(".article-taglist");
     if(article.tags != "" && article.tags != undefined ){
@@ -130,9 +136,8 @@ class ArticleDetail extends HTMLElement {
             generateAlert("删除成功");
             break;
           default:
-            generateAlert
+            generateAlert("删除失败");
         }
-        console.log(res);
       })
     });
 

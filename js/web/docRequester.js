@@ -60,3 +60,8 @@ async function getAllArticle() {
   const res = await fetch(serverLocation + "/blog/get-all-article");
   return await res.json();
 }
+
+function visitArticle(articleId) {
+  const res = fetch(serverLocation + "/blog/get-article?articleId=" +
+  fixedEncodeURIComponent(articleId), { method: "GET" });
+}

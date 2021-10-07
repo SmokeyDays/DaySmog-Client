@@ -10,15 +10,29 @@ document.querySelector(".search-bar-icon").addEventListener("click", () => {
 
 
 /* 按钮事件 */
-document.querySelector("#btn-article-list").addEventListener("click", () => {
+function generateBtnEvent(sel, func){
+  for(const i of document.querySelectorAll(sel)){
+    i.addEventListener("click", func);
+  }
+}
+
+generateBtnEvent(".btn-article-list", () => {
   nowPage = 1;
   generateArticleRequest("");
 });
 
-document.querySelector("#btn-user").addEventListener("click", () => {
+generateBtnEvent(".btn-user", () => {
   generateLoginBox("");
 });
 
-document.querySelector("#btn-new").addEventListener("click", () => {
+generateBtnEvent(".btn-new", () => {
   generateNewPage();
+});
+
+generateBtnEvent(".btn-menu", () => {
+  document.querySelector("small-menu").className = "show";
+});
+
+document.querySelector("small-menu").addEventListener("click", () => {
+  document.querySelector("small-menu").className = "";
 });

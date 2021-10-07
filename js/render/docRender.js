@@ -45,6 +45,10 @@ function doWithArticles(param,keyword){
 
 function blogArticleDetailRender(blogArticle) {
   nowPage = 1;
+
+  if(blogArticle.author == undefined || blogArticle.author == null || blogArticle.author == ""){
+    blogArticle.author = "匿名";
+  }
   
   const $midColumn = document.querySelector('.mid-column');
   for(const i of [...$midColumn.childNodes]){
@@ -54,6 +58,8 @@ function blogArticleDetailRender(blogArticle) {
   const $articleDetail = document.createElement("article-detail");
   $midColumn.appendChild($articleDetail);
   $articleDetail.render(blogArticle);
+
+  visitArticle(blogArticle.id);
 
   return $articleDetail;
 }
@@ -115,7 +121,6 @@ function generateTagList() {
   }
 
   for(const text in tagSet ){
-    console.log({text, val: tagSet[text]});
     const $newTag = document.createElement('main-tag');
     $rightColumn.appendChild($newTag);
     $newTag.render(text, tagSet[text]);
