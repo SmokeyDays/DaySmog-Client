@@ -34,6 +34,9 @@ class ArticleBlock extends HTMLElement {
     const $hot = $el.querySelector(".article-hot-count");
     $hot.innerHTML = article.popularity || 0;
 
+    const $author = $el.querySelector(".article-author");
+    $author.innerHTML = article.author;
+
     const $tagList = $el.querySelector(".article-taglist");
     if(article.tags != "" && article.tags != undefined ){
       for (let tag of article.tags.split(/[ ]+/)) {
@@ -116,6 +119,9 @@ class ArticleDetail extends HTMLElement {
     const $hot = $el.querySelector(".article-hot-count");
     $hot.innerHTML = article.popularity || 0;
 
+    const $author = $el.querySelector(".article-author");
+    $author.innerHTML = article.author;
+    
     const $tagList = $el.querySelector(".article-taglist");
     if(article.tags != "" && article.tags != undefined ){
       for (let tag of article.tags.split(/[ ]+/)) {

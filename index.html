@@ -33,18 +33,28 @@
         <left-btn-list></left-btn-list>
       </div>
       <div class="mid-column">
-        <article-block>
-          <div class="article-card">
-            <div class="article-title" data-text="title">title</div>
+        <article-detail>
+          <div class="article-detail-header">
+            <div class="article-title">title</div>
+            <div class="article-taglist">
+              <span class="article-tag">测试</span>
+            </div>
             <div class="article-hot">
               <img class="article-hot-img" src="./imgs/hot.svg">
               <span class="article-hot-count">0</span>
             </div>
-            <div class="article-digest">digest</div>
-            <div class="article-taglist"></div>
+            <div class="article-author">Tom Riddle</div>
           </div>
-          <article-deco></article-deco>
-        </article-block>
+          <div class="article-detail-body">
+            <div class="article-content">
+            </div>
+          </div>
+          <div class="article-deatil-footer">
+            <dynamic-btn class="delete-article"></dynamic-btn>
+            <flex-spacer></flex-spacer>
+            <dynamic-btn class="edit-article"></dynamic-btn>
+          </div>
+        </article-detail>
       </div>
       <div class="right-column display-when-big"></div>
   </div>
@@ -67,6 +77,7 @@
         <img class="article-hot-img" src="./imgs/hot.svg">
         <span class="article-hot-count">0</span>
       </div>
+      <div class="article-author">author</div>
     </div>
     <article-deco></article-deco>
   </template>
@@ -78,6 +89,7 @@
         <img class="article-hot-img" src="./imgs/hot.svg">
         <span class="article-hot-count">0</span>
       </div>
+      <div class="article-author">author</div>
     </div>
     <div class="article-detail-body">
       <div class="article-content">

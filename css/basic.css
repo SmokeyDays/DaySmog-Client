@@ -249,7 +249,7 @@ article-block:hover .article-card {
 }
 
 .article-taglist {
-	grid-column: 1/4;
+	grid-column: 1/2;
 	grid-row: 3/4;
 	padding: 0.5rem 0 0.3rem;
 }
@@ -278,6 +278,18 @@ article-block:hover .article-card {
 
 .article-hot-count {
 	color: #08ffea;
+}
+
+.article-author {
+	padding-top: .5rem;
+	grid-column: 2/4;
+	grid-row: 3/4;
+	white-space: nowrap;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: right;
+	color: #606060;
 }
 
 /* 文章详情 */
