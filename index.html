@@ -25,17 +25,14 @@
             <img class="search-bar-icon"  src="./imgs/search.svg">
           </div>
         </div>
+        
     </header>
     <main class="body-content">
       <div class="left-column display-when-big">
         <left-btn-list></left-btn-list>
       </div>
-      <div class="mid-column">
-      </div>
-      <div class="right-column display-when-big">
-        <span class="tag">测试 10</span><span class="tag">诗歌 10</span><span class="tag">文章 10</span>
-        <span class="tag">最大32位整型 2147483647</span>
-      </div>
+      <div class="mid-column"></div>
+      <div class="right-column display-when-big"></div>
   </div>
   <footer class="foot-content">
     <div class="foot-text">
@@ -86,10 +83,24 @@
     <div class="login-input-box">
       <div class="close-login-box">✖</div>
       <input class="username-input" maxlength=20 placeholder="请输入用户名">
-      <input class="passwd-input" maxlength=20 placeholder="请输入密码">
+      <input class="passwd-input" maxlength=20 placeholder="请输入密码" type="password">
       <login-input-btn></login-input-btn>
     </div>
     <flex-spacer></flex-spacer>
+  </template>
+  <template id="article-edit-template">
+    <div class="article-edit-header">
+      <textarea class="article-edit-title">title</textarea>
+      <div class="article-taglist"></div>
+    </div>
+    <div class="article-edit-body">
+      <textarea class="article-edit-content">text</textarea>
+    </div>
+    <div class="article-edit-footer">
+      <dynamic-btn class="edit-submit"></dynamic-btn>
+      <flex-spacer></flex-spacer>
+      <dynamic-btn class="edit-cancer"></dynamic-btn>
+    </div>
   </template>
   <script src="./js/tools/md5.js"></script>
   <script src="./js/tools/globalValue.js"></script>

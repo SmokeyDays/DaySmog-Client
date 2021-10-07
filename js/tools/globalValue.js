@@ -6,3 +6,5 @@ let maxArticle = 0;
 let maxPage = 0;
 let lastSearch = "";
 let nowUserName = "";
+
+let tagSet = {};

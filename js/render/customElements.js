@@ -32,11 +32,13 @@ class ArticleBlock extends HTMLElement {
     $digest.innerHTML = article.description;
 
     const $tagList = $el.querySelector(".article-taglist");
-    for (let tag of article.tags.split(/[ ]+/)) {
-      const $tag = document.createElement("span");
-      $tag.className = "article-tag";
-      $tag.textContent = tag;
-      $tagList.appendChild($tag);
+    if(article.tags != "" && article.tags != undefined ){
+      for (let tag of article.tags.split(/[ ]+/)) {
+        const $tag = document.createElement("span");
+        $tag.className = "article-tag";
+        $tag.textContent = tag;
+        $tagList.appendChild($tag);
+      }
     }
 
     this.innerHTML = "";
@@ -84,7 +86,7 @@ window.customElements.define("dynamic-btn", DynamicBtn);
 
 class LeftBtnList extends HTMLElement {
   connectedCallback(){
-    for (const i of [["btn-resume","简历"],["btn-article-list","文章"],["btn-about","关于"],["btn-user","用户"]]){
+    for (const i of [["btn-resume","简历"],["btn-article-list","文章"],["btn-about","关于"],["btn-user","用户"],["btn-new","新建"]]){
       const child = document.createElement("dynamic-btn");
       console.log(i);
       child.render(i[0],i[1]);
@@ -109,23 +111,36 @@ class ArticleDetail extends HTMLElement {
     $content.innerHTML = article.text;
 
     const $tagList = $el.querySelector(".article-taglist");
-    for (let tag of article.tags.split(/[ ]+/)) {
-      const $tag = document.createElement("span");
-      $tag.className = "article-tag";
-      $tag.textContent = tag;
-      $tagList.appendChild($tag);
+    if(article.tags != "" && article.tags != undefined ){
+      for (let tag of article.tags.split(/[ ]+/)) {
+        const $tag = document.createElement("span");
+        $tag.className = "article-tag";
+        $tag.textContent = tag;
+        $tagList.appendChild($tag);
+      }
     }
+    
 
     const $deleteArticle = $el.querySelector(".delete-article");
     $deleteArticle.render("delete-article","删除");
     $deleteArticle.addEventListener("click", () => {
       deleteArticle(article.id).then((res) => {
+        switch(res) {
+          case 0:
+            generateAlert("删除成功");
+            break;
+          default:
+            generateAlert
+        }
         console.log(res);
       })
     });
 
     const $editArticle = $el.querySelector(".edit-article");
     $editArticle.render("edit-article","编辑");
+    $editArticle.addEventListener("click", () => {
+      generateEditPage(article);
+    });
 
     this.innerHTML = "";
     this.appendChild($el);
@@ -196,7 +211,19 @@ class LoginInputBtn extends HTMLElement {
       userLogin(document.querySelector(".username-input").value,
         passwdEncrypt(document.querySelector(".passwd-input").value))
         .then(res =>{
-          console.log(res);
+          switch(res.typeCode) {
+            case 0:
+              generateAlert("登录成功");
+              break;
+            case 1:
+              generateAlert("密码错误");
+              break;
+            case 2:
+              generateAlert("用户不存在");
+              break;
+            default:
+              generateAlert("登录失败: 未知错误");
+          }
           nowUserName = document.querySelector(".username-input").value;
           cookieSaver("session", res.respondSession);
           loginBoxClose();
@@ -209,7 +236,8 @@ class LoginInputBtn extends HTMLElement {
       userRegister(document.querySelector(".username-input").value,
         passwdEncrypt(document.querySelector(".passwd-input").value))
         .then(res => {
-          console.log(res);
+          generateAlert(res);
+          loginBoxClose();
         });
     })
 
@@ -222,3 +250,88 @@ class LoginInputBtn extends HTMLElement {
   }
 }
 window.customElements.define("login-input-btn",LoginInputBtn);
+
+/* 编辑框 */
+class ArticleEdit extends HTMLElement {
+  static template = document.querySelector("#article-edit-template");
+
+  render(article) {
+    const $el = document.importNode(ArticleEdit.template.content, true);
+
+    const $title = $el.querySelector(".article-edit-title");
+    $title.innerHTML = article.title;
+
+    const $content = $el.querySelector(".article-edit-content");
+    $content.innerHTML = article.text;
+
+    const $tagList = $el.querySelector(".article-taglist");
+    if(article.tags != "" && article.tags != undefined ){
+      for (let tag of article.tags.split(/[ ]+/)) {
+        const $tag = document.createElement("span");
+        $tag.className = "article-tag";
+        $tag.textContent = tag;
+        $tagList.appendChild($tag);
+      }
+    }
+
+    const $deleteArticle = $el.querySelector(".edit-submit");
+    $deleteArticle.render("btn-submit","提交");
+    $deleteArticle.addEventListener("click", () => {
+      const newArticle = renewArticle(article, $title.value, $content.value)
+      postArticle(newArticle).then( res => {
+        generateAlert(res);
+        if(res == "Updated Successfully" || res == "Posted Successfully"){
+          blogArticleDetailRender(newArticle);
+        }else{
+          generateArticleRequest("");
+        }
+      });
+    });
+
+    const $editArticle = $el.querySelector(".edit-cancer");
+    $editArticle.render("btn-cancer","取消");
+    $editArticle.addEventListener("click", () => {
+      if(article.id > 0) {
+        blogArticleDetailRender(article);
+      }else{
+        generateArticleRequest("");
+      }
+    });
+
+    this.innerHTML = "";
+    this.appendChild($el);
+  }
+}
+window.customElements.define("article-edit",ArticleEdit);
+
+/* 通知框 */
+class MyAlertContent extends HTMLElement {}
+window.customElements.define("my-alert-content",MyAlertContent);
+
+class MyAlert extends HTMLElement {
+  render(text) {
+    const $alertContent = document.createElement("my-alert-content");
+    $alertContent.innerText = text;
+
+    this.innerHTML = "";
+    this.appendChild($alertContent);
+  }
+}
+window.customElements.define("my-alert",MyAlert);
+
+/* 标签 */
+class MainTag extends HTMLElement {
+  render(text, count) {
+    const $tagCount = document.createElement("span");
+    $tagCount.className = "tag-count";
+    $tagCount.innerText = " " + count;
+
+    this.innerHTML = "";
+    this.innerText = text;
+    this.addEventListener("click", () => {
+      generateArticleRequest(text);
+    });
+    this.appendChild($tagCount);
+  }
+}
+window.customElements.define("main-tag",MainTag);

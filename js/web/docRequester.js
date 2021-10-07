@@ -37,3 +37,26 @@ async function deleteArticle(articleId) {
     fixedEncodeURIComponent(nowUserName), { method: "DELETE" });
   return await res.text();
 }
+
+async function postArticle(blogArticle) {
+  const data = {
+    blogArticle,
+    userToken: {
+      encryption: cookieGetter("session"),
+      userName: nowUserName
+    }
+  }
+  const res = await fetch(serverLocation + "/blog/post-article", {
+    body: JSON.stringify(data),
+    headers: {
+      'content-type': 'application/json'
+    },
+    method: 'POST'
+  })
+  return await res.text();
+}
+
+async function getAllArticle() {
+  const res = await fetch(serverLocation + "/blog/get-all-article");
+  return await res.json();
+}

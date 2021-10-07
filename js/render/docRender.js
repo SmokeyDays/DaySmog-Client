@@ -38,7 +38,7 @@ function doWithArticles(param,keyword){
   $midColumn.appendChild($articleList);
   $midColumn.appendChild($pageManager);
 
-  for(const i of param.body){
+  for(const i of param.body) {
     blogArticleRender(i);
   }
 }
@@ -58,13 +58,66 @@ function blogArticleDetailRender(blogArticle) {
   return $articleDetail;
 }
 
-function generateLoginBox(){
+function generateLoginBox() {
   const $loginBox = document.createElement("login-box");
   const $headMainContent = document.querySelector(".head-main-content");
   $headMainContent.appendChild($loginBox);
 }
 
-function loginBoxClose(){
+function loginBoxClose() {
   const $loginBox = document.querySelector("login-box");
   $loginBox.remove();
+}
+
+function generateEditPage(blogArticle) {
+  const $midColumn = document.querySelector(".mid-column");
+  for(const i of [...$midColumn.childNodes]){
+    i.remove();
+  }
+  
+  const $articleEdit = document.createElement("article-edit");
+  $midColumn.appendChild($articleEdit);
+  $articleEdit.render(blogArticle);
+}
+
+function generateAlert(text) {
+  const $headContent = document.querySelector(".head-content");
+  const $alert = document.createElement("my-alert");
+  $headContent.appendChild($alert);
+  $alert.render(text);
+
+  console.log($alert);
+
+  setTimeout( () => {$alert.remove()},2000);
+}
+
+function generateNewPage() {
+  const blogArticle = {
+    title: "",
+    text: "",
+    tags: ""
+  }
+
+  const $midColumn = document.querySelector(".mid-column");
+  for(const i of [...$midColumn.childNodes]){
+    i.remove();
+  }
+  
+  const $articleEdit = document.createElement("article-edit");
+  $midColumn.appendChild($articleEdit);
+  $articleEdit.render(blogArticle);
+}
+
+function generateTagList() {
+  const $rightColumn = document.querySelector(".right-column");
+  for(const i of [...$rightColumn.childNodes]){
+    i.remove();
+  }
+
+  for(const text in tagSet ){
+    console.log({text, val: tagSet[text]});
+    const $newTag = document.createElement('main-tag');
+    $rightColumn.appendChild($newTag);
+    $newTag.render(text, tagSet[text]);
+  }
 }

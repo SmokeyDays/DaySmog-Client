@@ -5,6 +5,23 @@
 	color: #e7e7e7;
 }
 
+/* 滚动条 */
+
+*::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+	background-color: #202022;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 999px;
+	background-color: #e7e7e7;
+}
+
+*::-webkit-scrollbar-track {
+	background-color: #202022;
+}
+
 head {
 	cursor: url("../imgs/cursor.png"), default;
 }
@@ -22,6 +39,7 @@ body {
 	position: fixed;
 	z-index: 99;
 	border-bottom: 1px solid #e7e7e7;
+	background-color: #1f1f1f;
 }
 
 .head-main-content {
@@ -83,8 +101,32 @@ flex-spacer {
 	padding: 0 0.5rem;
 }
 
+/* 通知框 */
 
+my-alert {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	top: 60px;
+	left: 0;
+	right: 0;	
+	pointer-events: none;
+}
 
+my-alert-content {
+	transition: .5s;
+
+	margin: auto;
+	padding: 0.4rem 1rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: 1rem;
+	background-color: #353536;
+	border: 2px solid #00dffc;
+	border-radius: 5px;
+	color: #e7e7e7;
+}
 
 
 
@@ -170,6 +212,7 @@ article-block:hover .article-card {
 	line-height: 1.4rem;
 	max-height: 2.8rem;
 	color: #b1b1b1;
+	word-break: break-all;
 	/* 为了实现多行省略号 */
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -221,6 +264,49 @@ article-block:hover .article-card {
 	margin: 0 -1rem;
 }
 
+/* 编辑框 */
+
+.article-edit-header {
+	margin: 0.4rem 0;
+	display: grid;
+	grid-template-columns: 1fr 4rem 4rem;
+}
+
+.article-edit-title {
+	padding: 0.8rem;
+	display: block;
+	grid-column: 1/4;
+	grid-row: 1/2;
+	font-weight: bold;
+	font-size: 1.5rem;
+	white-space: nowrap;
+
+	background-color: #353536;
+	border-radius: 5px;
+}
+
+.article-edit-body {
+	background-color: #353536;
+	margin: 0.8rem 0;
+}
+
+.article-edit-content {
+	padding: 1.2rem;
+	width: 100%;
+	height: 50rem;
+	word-break: break-all;
+	box-sizing: border-box;
+	background-color: #353536;
+	border-radius: 5px;
+}
+
+.article-edit-footer {
+	display: flex;
+	padding: 0 1rem;
+	margin: 0 -1rem;
+}
+
+/* 翻页器 */
 
 page-manager {
 	display: flex;
@@ -239,7 +325,7 @@ page-manager {
 	padding-left: 1.2rem;
 }
 
-.tag {
+main-tag {
 	display: inline-block;
 
 	margin: 0.35rem 0.25rem;
@@ -250,14 +336,17 @@ page-manager {
 	color: #08ffea;
 
 	white-space: nowrap;
+	user-select: none;
 }
 
-.tag:hover {
+main-tag:hover {
 	background-color: #1c4140;
 }
 
-
-
+.tag-count {
+	user-select: none;
+	color: aqua;
+}
 
 
 
@@ -302,7 +391,7 @@ page-manager {
 
 
 /* 鼠标 */
-.article-card, .dynamic-btn, .tag, .search-bar-icon {
+.article-card, dynamic-btn, main-tag, .search-bar-icon {
 	cursor: url("../imgs/cursor-r.png"), default;
 }
 

@@ -18,3 +18,7 @@ document.querySelector("#btn-article-list").addEventListener("click", () => {
 document.querySelector("#btn-user").addEventListener("click", () => {
   generateLoginBox("");
 });
+
+document.querySelector("#btn-new").addEventListener("click", () => {
+  generateNewPage();
+});

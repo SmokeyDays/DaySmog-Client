@@ -30,3 +30,26 @@ function cookieGetter(key){
   }
   return "";
 }
+
+/* 文章处理 */
+function renewArticle(article, title, content, desc = null) {
+  article.title = title;
+  article.text = content;
+  article.description = desc;
+  return article;
+}
+
+/* 初始化标签 */
+function tagSetInit() {
+  getAllArticle().then( res => {
+    for(const i of res){
+      console.log(i.tags);
+      if(i.tags != "" && i.tags != undefined ){
+        for (const tag of i.tags.split(/[ ]+/)) {
+          tagSet[tag] = typeof(tagSet[tag]) == "number" ? tagSet[tag] + 1 : 1;
+        }
+      }
+      generateTagList();
+    }
+  });
+}
